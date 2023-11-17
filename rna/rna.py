@@ -45,23 +45,28 @@ y_test_encoded = label_encoder.transform(y_test.values.ravel())
 # Definir modelos
 models = {
     "Modelo 1": Sequential([
-        Dense(8, activation='tanh', input_shape=(X_train_normalized.shape[1],)),
+        Dense(8, activation='relu', input_shape=(X_train_normalized.shape[1],)),
         Dense(1, activation='sigmoid')
     ]),
-        "Modelo 2": Sequential([
-        Dense(8, activation='leaky_relu', input_shape=(X_train_normalized.shape[1],)),
+     "Modelo 2": Sequential([
+        Dense(32, activation='tanh', input_shape=(X_train_normalized.shape[1],)),
+        Dense(8, activation='tanh'),
         Dense(1, activation='sigmoid')
-        ]),
+    ]),
     "Modelo 3": Sequential([
-        Dense(4, activation='relu', input_shape=(X_train_normalized.shape[1],)),
-        Dense(4, activation='relu'),
+        Dense(32, activation='relu', input_shape=(X_train_normalized.shape[1],)),
+        Dense(16, activation='relu'),
+        Dense(8, activation='relu'),
         Dense(1, activation='sigmoid')
     ]),
     "Modelo 4": Sequential([
-        Dense(8, activation='relu', input_shape=(X_train_normalized.shape[1],)),
-        Dense(1, activation='sigmoid'),
+        Dense(128, activation='leaky_relu', input_shape=(X_train_normalized.shape[1],)),
+        Dense(64, activation='leaky_relu'),
+        Dense(32, activation='leaky_relu'),
+        Dense(1, activation='sigmoid')
     ])
 }
+
 
 results = {}
 
@@ -107,7 +112,6 @@ for model_name, model in models.items():
     plt.ylabel('Acuracidade')
     plt.savefig(f'plotacu_{model_name}.png')
     plt.legend()
-
     plt.tight_layout()
     plt.show()
 
