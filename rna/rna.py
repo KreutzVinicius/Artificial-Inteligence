@@ -118,7 +118,7 @@ for model_name, model in models.items():
     # Calcular e exibir a matriz de confusão
     y_pred = (y_pred_proba > 0.5).astype(int)
     conf_matrix = confusion_matrix(y_test_encoded, y_pred)
-    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='BuPu', xticklabels=['Positivo', 'Negativo'], yticklabels=['Verdadeiro', 'Falso'])
+    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='BuPu', xticklabels=['Positivo', 'Negativo'], yticklabels=['Positivo', 'Negativo'])
     plt.xlabel('Predição')
     plt.ylabel('Atual')
     plt.title(f'{model_name} - Matriz Confusão')
