@@ -45,23 +45,20 @@ y_test_encoded = label_encoder.transform(y_test.values.ravel())
 # Definir modelos
 models = {
     "Modelo 1": Sequential([
-        Dense(128, activation='tanh', input_shape=(X_train_normalized.shape[1],)),
-        Dense(64, activation='relu'),
-        Dense(32, activation='relu'),
+        Dense(8, activation='tanh', input_shape=(X_train_normalized.shape[1],)),
         Dense(1, activation='sigmoid')
     ]),
         "Modelo 2": Sequential([
-        Dense(256, activation='leaky_relu', input_shape=(X_train_normalized.shape[1],)),
-        Dense(128, activation='sigmoid'),
+        Dense(8, activation='leaky_relu', input_shape=(X_train_normalized.shape[1],)),
         Dense(1, activation='sigmoid')
         ]),
     "Modelo 3": Sequential([
-        Dense(64, activation='relu', input_shape=(X_train_normalized.shape[1],)),
+        Dense(4, activation='relu', input_shape=(X_train_normalized.shape[1],)),
+        Dense(4, activation='relu'),
         Dense(1, activation='sigmoid')
     ]),
     "Modelo 4": Sequential([
-        Dense(64, activation='relu', input_shape=(X_train_normalized.shape[1],)),
-        Dense(32, activation='relu'),
+        Dense(8, activation='relu', input_shape=(X_train_normalized.shape[1],)),
         Dense(1, activation='sigmoid'),
     ])
 }
